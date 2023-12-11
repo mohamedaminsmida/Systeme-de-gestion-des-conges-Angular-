@@ -1,0 +1,44 @@
+<div mat-dialog-content>
+	<h1 mat-dialog-title>Ajout d'un utilisateur</h1>
+
+	<form [formGroup]="userForm">
+		<mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{ isChecked }}</mat-slide-toggle>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="mail" type="email" id="mail" placeholder="Mail" onfocus="this.placeholder = ''" onblur="this.placeholder='Mail'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="nom" id="nom" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder='Nom'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="prenom" id="prenom" placeholder="prenom" onfocus="this.placeholder = ''" onblur="this.placeholder='prenom'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="role" id="role" placeholder="role" onfocus="this.placeholder = ''" onblur="this.placeholder='role'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="fonction" id="fonction" placeholder="fonction" onfocus="this.placeholder = ''" onblur="this.placeholder='fonction'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="rhierarchique" placeholder="Responsable hiérarchique" onfocus="this.placeholder = ''" onblur="this.placeholder='Responsable hiérarchique'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<label>Date d'entrée</label>
+			<input formControlName="dentree" matInput type="date" />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input type="password" formControlName="password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder='Mot de passe'" matInput />
+		</mat-form-field>
+	</form>
+	<div mat-dialog-action [align]="'end'">
+		<button mat-raised-button mat-dialog-close>Close</button>
+		<button mat-raised-button (click)="addUser()">{{ action }}</button>
+	</div>
+</div>

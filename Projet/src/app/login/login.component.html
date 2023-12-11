@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="text-center">
+					<i class="material-icons md-48">lock</i>
+				</div>
+				<div class="text-center">
+					<h1>Login</h1>
+					<h6>Please enter email & password</h6>
+				</div>
+				<form>
+					<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+						<mat-form-field appearance="legacy">
+							<mat-label> Email address</mat-label>
+							<input type="email" matInput placeholder="Email" formControlName="email" />
+						</mat-form-field>
+
+						<mat-form-field appearance="legacy">
+							<mat-label>Password</mat-label>
+							<input matInput type="password" formControlName="password" />
+						</mat-form-field>
+
+						<input [disabled]="!loginForm.valid" type="submit" class="btn btn-primary w-100" value="Login" name="" />
+					</form>
+					<div class="card-footer text-right">
+						<small><a routerLink="/forgot-password">Forgot Password</a></small>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

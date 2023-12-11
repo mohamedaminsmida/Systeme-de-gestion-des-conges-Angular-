@@ -1,0 +1,29 @@
+table {
+	width: 100%;
+}
+
+.mat-form-field {
+	font-size: 14px;
+	width: 100%;
+}
+
+td,
+th {
+	width: 11.11%;
+}
+.container {
+	max-width: 100%;
+	margin-top: 20px;
+}
+button {
+	background-color: Transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+}
+.mat-card {
+	background-color: #132764;
+	color: white;
+}

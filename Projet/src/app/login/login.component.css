@@ -1,0 +1,13 @@
+.card {
+	border: none;
+	width: 500px;
+	padding: 40px;
+	position: relative;
+	top: 70%;
+	left: 100%;
+	transform: translate(-50%, -50%);
+}
+
+.example-container .mat-form-field + .mat-form-field {
+	margin-left: 8px;
+}

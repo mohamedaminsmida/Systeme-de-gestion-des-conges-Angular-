@@ -1,0 +1,67 @@
+<div class="main-content">
+	<div class="container-fluid">
+		<button mat-raised-button (click)="openDialog()">ajout</button>
+		<button mat-raised-button (click)="logout()">Logout</button>
+		<mat-card>Les Utilisateurs</mat-card>
+		<div class="mat-elevation-z8">
+			<table mat-table [dataSource]="dataSource" matSort>
+				<ng-container matColumnDef="statut">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>statut</th>
+
+					<td mat-cell *matCellDef="let row">{{ row.statut }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="nom">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+					<td mat-cell *matCellDef="let row">{{ row.nom }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="prenom">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Prenom</th>
+					<td mat-cell *matCellDef="let row">{{ row.prenom }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="dentree">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Date d'entrée</th>
+					<td mat-cell *matCellDef="let row">{{ row.dentree }}</td>
+				</ng-container>
+
+				
+				<ng-container matColumnDef="fonction">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Fonction</th>
+					<td mat-cell *matCellDef="let row">{{ row.fonction }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="role">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+					<td mat-cell *matCellDef="let row">{{ row.role }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="rhierarchique">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Responsable hiérarchique</th>
+					<td mat-cell *matCellDef="let row">{{ row.rhierarchique }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="mail">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
+					<td mat-cell *matCellDef="let row">{{ row.mail }}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="action">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+					<td mat-cell *matCellDef="let row">
+						<button mat-icon-button (click)="editUser(row)" color="primary">
+							<mat-icon>edit</mat-icon>
+						</button>
+						<button mat-icon-button (click)="confirm(row.id)" color="danger">
+							<mat-icon>delete</mat-icon>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+			</table>
+		</div>
+	</div>
+</div>

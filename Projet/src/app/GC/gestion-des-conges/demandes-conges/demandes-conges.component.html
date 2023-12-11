@@ -1,0 +1,52 @@
+<div mat-dialog-content>
+	<h1 mat-dialog-title>Création d'une demande</h1>
+
+	<form [formGroup]="demandForm">
+		<mat-form-field appearance="standard">
+			<input formControlName="nom" id="nom" name="nom" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder='Nom'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<input formControlName="prenom" id="prenom" name="prenom" required placeholder="prenom" onfocus="this.placeholder = ''" onblur="this.placeholder='prenom'" matInput />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<label>Date de debut</label>
+			<input formControlName="ddebut" matInput type="date" name="date-debut" [(ngModel)]="date_debut" required />
+		</mat-form-field>
+		<mat-form-field appearance="standard">
+			<label>Date de fin </label>
+			<input formControlName="dfin" matInput type="date" name="date-fin" [(ngModel)]="date_fin" (change)="diff()" />
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<label>Nombre de jours</label>
+			<input formControlName="nbr" matInput type="text" readonly name="nbr" [(ngModel)]="nbr" required />
+		</mat-form-field>
+
+		<mat-form-field appearance="fill">
+			<mat-label>Type de congés</mat-label>
+			<mat-select formControlName="type" id="sujet" required>
+				<mat-option *ngFor="let option of options" [value]="option"> {{ option }}</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+		<mat-form-field appearance="standard">
+			<label for="message">Commentaires</label>
+			<input
+				formControlName="commentaire"
+				ngModel
+				id="message"
+				name="message"
+				placeholder="Bonjour, je vous contacte car...."
+				onfocus="this.placeholder = ''"
+				onblur="this.placeholder='Bonjour, je vous contacte car....'"
+				matInput
+			/>
+		</mat-form-field>
+	</form>
+	<div mat-dialog-action [align]="'end'">
+		<button mat-raised-button mat-dialog-close>Close</button>
+		<button mat-raised-button (click)="postdemand()">{{ actionBtn }}</button>
+	</div>
+</div>

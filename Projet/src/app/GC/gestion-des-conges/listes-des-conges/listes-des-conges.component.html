@@ -1,0 +1,72 @@
+<div mat-dialog-content>
+	<h1 mat-dialog-title>LISTE DES DEMANDES A ACCEPTER/RESUSER</h1>
+	<div class="container">
+		<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+			<ng-container matColumnDef="statut">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>statut</th>
+				<td mat-cell *matCellDef="let status">
+					<p>en cours</p>
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="id">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+				<td mat-cell *matCellDef="let row">{{ row.id }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="nom">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+				<td mat-cell *matCellDef="let row">{{ row.nom }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="prenom">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</th>
+				<td mat-cell *matCellDef="let row">{{ row.prenom }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="ddebut">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>D-debut</th>
+				<td mat-cell *matCellDef="let row">{{ row.ddebut | date }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="dfin">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>D-fin</th>
+				<td mat-cell *matCellDef="let row">{{ row.dfin | date }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="nbr">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>N-jours</th>
+				<td mat-cell *matCellDef="let row">{{ row.nbr }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="type">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+				<td mat-cell *matCellDef="let row">{{ row.type }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="commentaire">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Commentaire</th>
+				<td mat-cell *matCellDef="let row">{{ row.commentaire }}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="descision">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Decision</th>
+				<td mat-cell *matCellDef="let row">
+					<button mat-icon-button color="primary">
+						<mat-icon>done</mat-icon>
+					</button>
+					<button mat-icon-button color="warn">
+						<mat-icon>clear</mat-icon>
+					</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+		</table>
+	</div>
+
+	<div mat-dialog-action [align]="'end'">
+		<button mat-raised-button mat-dialog-close>Close</button>
+	</div>
+</div>
